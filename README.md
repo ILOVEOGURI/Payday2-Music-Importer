@@ -1,6 +1,6 @@
 # PAYDAY 2 Music Importer
 
-PAYDAY 2 Music Importer 1.0 is a free, open-source Windows mod. Its release version stays at 1.0 until 2.0 release. It adds an in-game menu for importing YouTube videos as PAYDAY 2 menu music. A PowerShell helper downloads and converts the audio, then creates a BeardLib music mods in `PAYDAY 2\assets\mod_overrides`.
+PAYDAY 2 Music Importer 1.0 is a free, open-source Windows mod. Its release version stays at 1.0 until 2.0 release. It adds an in-game menu for importing YouTube videos as PAYDAY 2 menu music. A PowerShell helper downloads and converts the audio, then creates a BeardLib music mod in `PAYDAY 2\assets\mod_overrides`.
 
 ## Requirements
 
