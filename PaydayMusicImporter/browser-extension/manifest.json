@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "PAYDAY 2 Music Importer YouTube Picker",
+  "version": "1.0.0",
+  "description": "Automatically queues YouTube videos selected in the bundled Chromium picker.",
+  "permissions": [
+    "tabs",
+    "webNavigation",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://youtube.com/*",
+    "https://www.youtube.com/*",
+    "https://m.youtube.com/*",
+    "https://music.youtube.com/*",
+    "http://127.0.0.1:18921/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

@@ -1,0 +1,13 @@
+{
+    "blt_version": 2,
+    "name": "PAYDAY 2 Music Importer",
+    "author": "Japanese Sherk",
+    "description": "Choose YouTube music in standalone Chromium or queue a link to create a BeardLib menu music mod.",
+    "version": "1.0",
+    "hooks": [
+        {
+            "hook_id": "lib/managers/menumanager",
+            "script_path": "main.lua"
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+name: Build and publish PAYDAY 2 Music Importer
+
+on:
+  push:
+    tags:
+      - v1.0
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Test installer package handling
+        run: dotnet run --project .\PD2MusicImporterInstaller.Tests\PD2MusicImporterInstaller.Tests.csproj -c Release
+
+      - name: Build standalone installer
+        run: >-
+          dotnet publish .\PD2MusicImporterInstaller\PD2MusicImporterInstaller.csproj
+          -c Release -r win-x64 --self-contained true
+          -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+          -o .\artifacts\installer
+
+      - name: Package mod ZIP
+        shell: pwsh
+        run: Compress-Archive -Path .\PaydayMusicImporter -DestinationPath .\artifacts\PaydayMusicImporter.zip -Force
+
+      - name: Publish GitHub Release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create $env:GITHUB_REF_NAME `
+            .\artifacts\installer\PD2MusicImporterInstaller.exe `
+            .\artifacts\PaydayMusicImporter.zip `
+            --repo ILOVEOGURI/Payday2-Music-Importer `
+            --title "PAYDAY 2 Music Importer 1.0" `
+            --notes-file .\RELEASE_NOTES.md `
+            --verify-tag
