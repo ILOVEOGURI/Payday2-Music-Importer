@@ -20,7 +20,7 @@ The installer downloads the stable mod ZIP from GitHub Releases. It validates th
 - BeardLib
 - Internet access for the installer, YouTube, and first-run browser/tool setup
 
-See [`PaydayMusicImporter/README.md`](PaydayMusicImporter/README.md) for the mod's features, setup, and troubleshooting. The mod stays at version **1.0** until its author chooses to make a 2.0 release.
+See [`PaydayMusicImporter/README.md`](PaydayMusicImporter/README.md) for the mod's features, setup, and troubleshooting. The mod stays at version **1.0** until I make 2.0 release.
 
 ## Build the installer
 
